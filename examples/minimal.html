@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liquid Glass — minimal integration</title>
+  <link rel="stylesheet" href="../src/liquid-glass.css">
+  <style>
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; font: 16px system-ui; color: #142f38; background: repeating-linear-gradient(35deg, #b5e4d5 0 40px, #93c9de 40px 80px); }
+    .card { width: min(320px, calc(100vw - 100px)); padding: 32px; background: transparent; }
+    button { font: inherit; padding: 12px 22px; border: 0; background: transparent; color: inherit; cursor: pointer; }
+    button:focus-visible { outline: 3px solid #3451bd; outline-offset: 4px; }
+  </style>
+</head>
+<body>
+  <article class="card" id="card">
+    <h1>Your own card.</h1>
+    <p>This is ordinary HTML over a CSS gradient. Replace it with your site's content.</p>
+    <button type="button" id="button">Click me</button>
+    <p id="status" aria-live="polite">The component preserves native events.</p>
+  </article>
+  <script type="module">
+    import { createLiquidGlass } from '../src/liquid-glass.js';
+    const card = createLiquidGlass('#card', { radius: 32 });
+    const button = createLiquidGlass('#button', { shape: 'pill', blur: 4 });
+    let count = 0;
+    document.querySelector('#button').addEventListener('click', () => {
+      count++;
+      document.querySelector('#status').textContent = `Clicked ${count} time${count === 1 ? '' : 's'}.`;
+      card.update({ light: count % 2 ? 55 : 22 });
+    });
+    // Call card.destroy() and button.destroy() when removing these surfaces.
+  </script>
+</body>
+</html>

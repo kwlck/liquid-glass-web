@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reusable Liquid Glass cards, buttons and navigation for your own website.">
+  <title>Liquid Glass for Web — components</title>
+  <link rel="icon" href="./demo/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./src/liquid-glass.css">
+  <link rel="stylesheet" href="./examples/showcase.css">
+  <script type="module" src="./examples/showcase.js"></script>
+</head>
+<body>
+  <header class="header"><a class="wordmark" href="./">Liquid Glass <span>for Web</span></a><div><a href="./demo/">Original demo ↗</a><a href="https://github.com/kwlck/liquid-glass-web">GitHub ↗</a></div></header>
+  <main>
+    <section class="intro"><p class="eyebrow">OPEN SOURCE · VANILLA JS · MIT</p><h1>Glass you can<br>put anywhere.</h1><p>A real component for your cards, buttons and navigation.<br>Keep your HTML. Make the surface liquid.</p></section>
+    <section class="workbench" aria-labelledby="workbench-title">
+      <div class="playground" id="playground">
+        <div class="backdrop-art" aria-hidden="true"><span>Make it<br>your own.</span><i></i><b></b><em></em><div class="lines"></div></div>
+        <nav class="glass-nav" id="glass-nav" aria-label="Example navigation"><strong>Studio</strong><a href="#usage">About</a><a href="#usage">Work</a><button type="button" id="nav-action">Say hello ↗</button></nav>
+        <article class="glass-card" id="glass-card"><p class="eyebrow">YOUR HTML, YOUR CONTENT</p><h2 id="card-title">A little<br>more fluid.</h2><p>Text stays sharp. Links stay clickable. The live page behind the surface bends at its edges.</p><button type="button" id="card-action">Try the button ↗</button><p class="feedback" id="feedback" aria-live="polite">Ready for your next project.</p></article>
+        <button class="glass-pill" id="glass-pill" type="button">A glass button <span>↗</span></button>
+        <button class="glass-orb" id="glass-orb" type="button" aria-label="Toggle background colors">✳</button>
+      </div>
+      <aside class="controls"><p class="eyebrow">COMPONENT PLAYGROUND</p><h2 id="workbench-title">Make it yours.</h2><p>These controls update the card above. The other surfaces are independent instances.</p>
+        <label>Shape<select id="shape"><option value="rounded">Rounded rectangle</option><option value="pill">Capsule</option><option value="ellipse">Ellipse / circle</option></select></label>
+        <label>Corner radius <output id="radius-value">32 px</output><input type="range" id="radius" min="0" max="160" value="32"></label>
+        <label>Refraction <output id="refraction-value">100%</output><input type="range" id="refraction" min="0" max="100" value="100"></label>
+        <label>Blur <output id="blur-value">0 px</output><input type="range" id="blur" min="0" max="40" value="0"></label>
+        <label>Light <output id="light-value">22%</output><input type="range" id="light" min="0" max="100" value="22"></label>
+        <label class="checkbox"><input id="fallback" type="checkbox"> Preview CSS fallback</label>
+        <div class="control-actions"><button id="resize" type="button">Resize card</button><button id="reset" type="button">Reset</button></div>
+        <p class="renderer" id="renderer" aria-live="polite"></p>
+        <p class="fine-print">Refraction uses SVG backdrop filters on Chromium. Other browsers get translucent CSS glass. Your page supplies the background; no screenshot or image upload is needed.</p>
+      </aside>
+    </section>
+    <section class="usage" id="usage"><div><p class="eyebrow">THREE LINES TO MOUNT</p><h2>Bring your own interface.</h2><p>Copy <code>src/</code> into your site, load the stylesheet, then attach glass to an existing element. Size and position it with your own CSS.</p><a href="./examples/minimal.html">Open minimal integration example ↗</a></div><pre><code>&lt;link rel="stylesheet" href="./src/liquid-glass.css"&gt;
+&lt;article id="card"&gt;Your content&lt;/article&gt;
+&lt;script type="module"&gt;
+  import { createLiquidGlass } from './src/liquid-glass.js';
+  const glass = createLiquidGlass('#card', { radius: 32 });
+  // glass.update({ shape: 'pill', blur: 8 });
+  // glass.destroy();
+&lt;/script&gt;</code></pre></section>
+  </main>
+  <footer>Independent, Apple-inspired web experiment. <a href="https://github.com/kwlck/liquid-glass-web/blob/main/LICENSE">MIT licensed</a>.</footer>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#193d57" />
+  <meta name="description" content="An interactive Liquid Glass experiment. Move the glass and change its shape, light, and background." />
+  <title>Liquid Glass — interactive experiment</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div id="fallbackBackdrop" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Liquid Glass — home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+      <span>Liquid Glass<span class="brand-note">EXPERIMENT 01</span></span>
+    </a>
+    <div class="header-actions">
+      <button id="focusButton" class="round-button glass-ui" aria-label="Hide panels" title="Hide panels"><svg><use href="#icon-expand"/></svg></button>
+      <button id="settingsButton" class="settings-button glass-ui" aria-expanded="true" aria-controls="settings"><svg><use href="#icon-sliders"/></svg><span>Settings</span></button>
+    </div>
+  </header>
+
+  <main>
+    <div id="stage" class="stage" aria-label="Glass demonstration area"></div>
+    <div id="specimen" class="specimen" tabindex="0" role="group" aria-label="Glass lens. Drag or move using the arrow keys">
+      <div class="specimen-content">
+        <div class="specimen-eyebrow"><svg><use href="#icon-sparkle"/></svg><span>LIQUID GLASS</span></div>
+        <div class="hello">hello.</div>
+        <div class="specimen-footer"><svg><use href="#icon-move"/></svg><span>Drag me</span></div>
+      </div>
+    </div>
+    <div class="stage-caption"><span class="caption-line"></span>Light. Depth. Motion.</div>
+
+    <aside id="settings" class="settings-panel glass-ui" aria-label="Glass settings">
+      <div class="panel-heading"><div><span class="eyebrow">MATERIAL</span><h1>Almost weightless.</h1></div><button id="resetButton" class="icon-button" aria-label="Reset glass settings" title="Reset"><svg><use href="#icon-reset"/></svg></button></div>
+      <div class="segmented material-selector" role="group" aria-label="Glass material">
+        <button data-material="clear" aria-pressed="true">Clear</button><button data-material="frosted" aria-pressed="false">Frosted</button>
+      </div>
+      <div class="sliders">
+        <label class="range-control" for="refraction"><span class="range-heading"><span>Refraction</span><output id="refractionValue" for="refraction">100%</output></span><input id="refraction" type="range" min="0" max="100" value="100" /></label>
+        <label class="range-control" for="blur"><span class="range-heading"><span>Blur</span><output id="blurValue" for="blur">0</output></span><input id="blur" type="range" min="0" max="30" value="0" /></label>
+        <label class="range-control" for="light"><span class="range-heading"><span>Light</span><output id="lightValue" for="light">22%</output></span><input id="light" type="range" min="0" max="100" value="22" /></label>
+      </div>
+      <div class="panel-divider"></div>
+      <div class="shape-heading">Shape</div>
+      <div class="shape-selector" role="group" aria-label="Glass shape">
+        <button data-shape="card" aria-pressed="true"><span class="shape-icon card-icon" aria-hidden="true"></span><span>Card</span></button>
+        <button data-shape="pill" aria-pressed="false"><span class="shape-icon pill-icon" aria-hidden="true"></span><span>Capsule</span></button>
+        <button data-shape="circle" aria-pressed="false"><span class="shape-icon circle-icon" aria-hidden="true"></span><span>Lens</span></button>
+      </div>
+      <p class="panel-tip"><svg><use href="#icon-cursor"/></svg>Move your pointer to catch the light</p>
+    </aside>
+
+    <section class="wallpaper-panel glass-ui" aria-label="Background selection">
+      <div class="wallpaper-heading"><span>Choose a background</span><div class="wallpaper-heading-actions"><span id="wallpaperName">Aurora</span><button id="customBackgroundButton" type="button">＋ Custom</button></div></div>
+      <input id="customBackgroundInput" type="file" accept="image/*" hidden />
+      <p id="backgroundMessage" class="background-message" role="status" hidden></p>
+      <div id="wallpaperList" class="wallpaper-list" role="group" aria-label="Wallpapers"></div>
+    </section>
+  </main>
+
+  <footer><span>EXPLORE THE MATERIAL</span><a href="https://developer.apple.com/videos/play/wwdc2025/219/" target="_blank" rel="noopener noreferrer">Inspired by Apple <span aria-hidden="true">↗</span></a></footer>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-sliders" viewBox="0 0 24 24"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+    <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></symbol>
+    <symbol id="icon-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1.4 7M4 5v5h5"/></symbol>
+    <symbol id="icon-sparkle" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></symbol>
+    <symbol id="icon-move" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3m12-6 3 3-3 3"/></symbol>
+    <symbol id="icon-cursor" viewBox="0 0 24 24"><path d="m5 3 14 9-7 1-3 7Z"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4 10-9"/></symbol>
+  </svg>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

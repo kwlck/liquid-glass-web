@@ -1,0 +1,18 @@
+{
+  "name": "liquid-glass-web",
+  "version": "0.1.0",
+  "description": "Reusable Liquid Glass surfaces for HTML, with live backdrop refraction and CSS fallback.",
+  "type": "module",
+  "sideEffects": ["**/*.css"],
+  "main": "./src/liquid-glass.js",
+  "types": "./src/liquid-glass.d.ts",
+  "exports": {
+    ".": { "types": "./src/liquid-glass.d.ts", "import": "./src/liquid-glass.js" },
+    "./style.css": "./src/liquid-glass.css"
+  },
+  "files": ["src", "README.md", "LICENSE"],
+  "scripts": { "dev": "node scripts/serve.js", "test": "node --test", "check": "node --check src/liquid-glass.js && node --check src/geometry.js && node --check examples/showcase.js && node --check demo/app.js" },
+  "engines": { "node": ">=20" },
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/kwlck/liquid-glass-web.git" }
+}

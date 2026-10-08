@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+node_modules/
+.env
+.env.*
+!.env.example
+.openai/
+*.log
+*.tgz
+.sites-runtime/

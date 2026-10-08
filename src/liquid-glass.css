@@ -1,0 +1,30 @@
+/* Include once. The component never styles your text, controls or layout. */
+.lg-host { --lg-tint: rgb(255 255 255 / .07); }
+.lg-layer, .lg-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--lg-radius, 24px);
+  pointer-events: none;
+}
+.lg-layer {
+  z-index: -1;
+  overflow: hidden;
+  background: var(--lg-tint);
+  -webkit-backdrop-filter: blur(var(--lg-blur, 0px)) saturate(1.15);
+  backdrop-filter: blur(var(--lg-blur, 0px)) saturate(1.15);
+  box-shadow: 0 12px 36px rgb(0 0 0 / .12);
+}
+.lg-host[data-lg-renderer="svg"] > .lg-layer {
+  backdrop-filter: var(--lg-filter) saturate(1.15);
+}
+.lg-sheen {
+  z-index: 1;
+  opacity: var(--lg-light, .22);
+  background: radial-gradient(ellipse at var(--lg-pointer-x, 25%) var(--lg-pointer-y, 10%), rgb(255 255 255 / .42), transparent 60%);
+  box-shadow: inset 0 1px 1px rgb(255 255 255 / .95), inset 0 -1px 1px rgb(255 255 255 / .5), inset 0 0 0 1px rgb(255 255 255 / .5);
+}
+/* Opaque enough to read when the platform requests reduced transparency. */
+@media (prefers-reduced-transparency: reduce) {
+  .lg-host > .lg-layer { background: var(--lg-solid, #e7edf2); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .lg-host[data-lg-renderer="svg"] > .lg-layer { backdrop-filter: none; }
+}

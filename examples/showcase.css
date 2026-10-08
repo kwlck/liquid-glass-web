@@ -1,0 +1,59 @@
+:root { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #202a32; background: #f6f7f8; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #465cfd; outline-offset: 5px; }
+.header { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: auto; padding: 30px 48px; font-size: 14px; }
+.wordmark { font-size: 19px; font-weight: 650; letter-spacing: -.7px; }
+.wordmark span { font-weight: 400; color: #78818a; margin-left: 5px; }
+.header > div { display: flex; gap: 28px; }
+main { max-width: 1400px; margin: auto; padding: 20px 48px 0; }
+.intro { margin: 44px 0 52px; }
+.eyebrow { font-size: 11px; font-weight: 650; letter-spacing: 1.7px; }
+h1 { font-size: clamp(50px, 6.5vw, 86px); line-height: 1.04; font-weight: 550; letter-spacing: -4px; margin: 18px 0 24px; }
+.intro > p:last-child { color: #69747e; font-size: 18px; line-height: 1.6; }
+.workbench { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 34px; align-items: start; }
+.playground { position: relative; height: 600px; border-radius: 32px; overflow: hidden; background: #94d1ca; color: #123d3d; }
+.backdrop-art { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(150deg, #b3e8b9 5%, #64c2c4 55%, #848ad6); }
+.backdrop-art > span { position: absolute; left: 38px; top: 175px; font-size: clamp(72px, 8vw, 116px); line-height: .88; font-weight: 750; letter-spacing: -7px; color: #18494c; }
+.backdrop-art i { position: absolute; width: 250px; height: 250px; border-radius: 50%; right: -80px; top: 70px; background: #e5f796; }
+.backdrop-art b { position: absolute; width: 370px; height: 130px; background: #eeb6c7; transform: rotate(-35deg); right: -35px; bottom: 60px; border-radius: 80px; }
+.backdrop-art em { position: absolute; width: 140px; height: 140px; left: -40px; bottom: -45px; border-radius: 30px; background: #28888d; transform: rotate(25deg); }
+.lines { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 61px, #ffffff32 61px 62px); }
+.playground.alternate .backdrop-art { background: linear-gradient(145deg, #e6c0ff, #afadee 50%, #fbaea7); }
+.glass-nav { position: absolute; top: 24px; left: 24px; right: 24px; display: flex; align-items: center; gap: 24px; padding: 18px 24px; background: transparent; font-size: 13px; border: 0; }
+.glass-nav strong { margin-right: auto; font-size: 17px; }
+.glass-nav button { border: 0; background: transparent; color: inherit; padding: 0; }
+.glass-card { position: absolute; right: 45px; top: 145px; width: 310px; padding: 30px; color: #143839; background: transparent; border: 0; }
+.glass-card h2 { font-size: 42px; line-height: 1.05; font-weight: 550; letter-spacing: -1.8px; margin: 22px 0 18px; }
+.glass-card > p:not(.eyebrow) { font-size: 13px; line-height: 1.65; }
+.glass-card > button { border: 0; background: #143839; color: #fff; border-radius: 10px; font-size: 13px; padding: 12px 17px; margin-top: 8px; }
+.glass-card .feedback { font-size: 11px !important; min-height: 36px; opacity: .7; margin-bottom: 0; }
+.glass-pill { position: absolute; bottom: 36px; left: 30px; border: 0; background: transparent; color: inherit; padding: 19px 27px; display: flex; gap: 30px; font-weight: 600; font-size: 14px; }
+.glass-orb { position: absolute; bottom: 28px; right: 30px; width: 85px; height: 85px; border: 0; background: transparent; color: inherit; font-size: 46px; }
+.controls { padding: 9px 0 0; }
+.controls h2 { font-size: 28px; margin: 12px 0; letter-spacing: -1px; font-weight: 550; }
+.controls > p { font-size: 13px; line-height: 1.6; color: #6b747e; }
+.controls > label:not(.checkbox) { display: block; font-size: 13px; font-weight: 600; margin-top: 23px; }
+.controls output { float: right; font-weight: 400; color: #707882; font-variant-numeric: tabular-nums; }
+.controls input[type="range"] { display: block; width: 100%; margin: 15px 0 0; accent-color: #253b48; cursor: pointer; }
+.controls select { width: 100%; display: block; margin-top: 12px; padding: 12px; border: 1px solid #dae0e5; border-radius: 10px; background: #fff; color: inherit; }
+.checkbox { display: flex; align-items: center; gap: 8px; font-size: 13px; margin: 24px 0; }
+.checkbox input { accent-color: #253b48; }
+.control-actions { display: flex; gap: 10px; }
+.control-actions button { background: #fff; border: 1px solid #dae0e5; border-radius: 10px; padding: 10px 15px; font-size: 12px; color: inherit; }
+.controls .renderer { font-size: 11px; text-transform: uppercase; letter-spacing: .8px; margin: 20px 0 8px; }
+.controls .fine-print { font-size: 11px; }
+.usage { margin: 90px 0; display: grid; grid-template-columns: 1fr 1.2fr; gap: 45px; align-items: center; }
+.usage h2 { font-size: 33px; font-weight: 550; letter-spacing: -1.2px; }
+.usage p { color: #6b747e; font-size: 14px; line-height: 1.8; max-width: 380px; }
+.usage a { display: inline-block; font-size: 13px; margin-top: 12px; border-bottom: 1px solid #b9c5ce; padding-bottom: 5px; }
+pre { background: #e9edf0; border-radius: 20px; padding: 28px; overflow: auto; font-size: 11px; line-height: 1.9; margin: 0; }
+footer { max-width: 1400px; padding: 0 48px 36px; margin: auto; color: #7d8790; font-size: 12px; }
+footer a { text-decoration: underline; }
+@media (max-width: 1100px) { .workbench { grid-template-columns: minmax(0, 1fr) 250px; gap: 25px; } .glass-card { right: 24px; width: 285px; } .glass-nav { gap: 15px; } }
+@media (max-width: 850px) { .header, main { padding-left: 22px; padding-right: 22px; } .workbench { grid-template-columns: 1fr; } .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; } .controls > p, .controls h2, .controls > .eyebrow, .controls .fine-print, .controls .renderer { grid-column: 1 / -1; } .usage { grid-template-columns: 1fr; margin: 55px 0; gap: 22px; } .playground { height: 570px; } footer { padding-left: 22px; padding-right: 22px; } }
+@media (max-width: 450px) { .header { font-size: 12px; padding-top: 22px; } .wordmark { font-size: 16px; } .wordmark span { display: none; } .header > div { gap: 16px; } .intro { margin-top: 24px; } h1 { letter-spacing: -2.7px; } .intro > p:last-child { font-size: 15px; } .playground { border-radius: 24px; height: 560px; } .glass-nav { top: 18px; left: 15px; right: 15px; padding: 18px; gap: 13px; } .glass-nav a { display: none; } .glass-card { top: 122px; right: 19px; width: 260px; padding: 26px; } .glass-pill { left: 20px; bottom: 33px; padding: 16px 20px; gap: 17px; font-size: 12px; } .glass-orb { right: 20px; width: 65px; height: 65px; font-size: 36px; } .backdrop-art > span { left: 20px; top: 165px; font-size: 80px; } pre { padding: 18px; font-size: 10px; } }
