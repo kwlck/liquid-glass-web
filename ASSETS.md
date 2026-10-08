@@ -13,3 +13,5 @@ The Unsplash License permits downloading, copying, modifying, distributing, and 
 The Aurora, Sunset, and Midnight backgrounds are locally rendered gradients in `demo/app.js`, covered by the project's MIT license.
 
 The favicon and interface SVG symbols are original code-native assets, also covered by the MIT license. User-selected backgrounds are processed locally and are not bundled or redistributed by the project.
+
+The pedestrian-crossing README preview (`docs/components-road.jpg`) uses an AI-generated backdrop. Its glass effect is rendered by this project's component.

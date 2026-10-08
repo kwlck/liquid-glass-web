@@ -14,7 +14,7 @@ Reusable, Apple-inspired glass surfaces for **your own website**. Attach glass t
 
 Default material: **Refraction 100 / Blur 0 / Light 22**.
 
-![Reusable glass card and buttons with adjustable shapes and material](docs/components.jpg)
+![Liquid Glass refracting pedestrian crossing markings](docs/components-road.jpg)
 
 [Original WebGL wallpaper demo](https://liquidglass-astra.rennasfar.chatgpt.site) · [Minimal example](examples/minimal.html) · [React example](examples/react.jsx)
 
