@@ -7,21 +7,21 @@
   <link rel="stylesheet" href="../src/liquid-glass.css">
   <style>
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 40px; background: #101d2a; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    .scene { position: relative; width: min(1200px, 100%); height: min(740px, calc(100vh - 80px)); min-height: 560px; overflow: hidden; border-radius: 32px; background: url('../demo/assets/alpine.jpg') center 48% / cover; color: white; box-shadow: 0 30px 100px #0005; }
-    .scene:before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #04172b3d, transparent 45%, #061d3f1c); }
-    h1 { position: absolute; top: 42px; left: 50px; margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -.8px; text-shadow: 0 2px 15px #00192866; }
-    .card { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); width: 390px; height: 290px; display: grid; place-items: center; --lg-tint: #ffffff08; }
-    .card span { font-size: 94px; font-weight: 300; letter-spacing: -6px; padding-right: 6px; text-shadow: 0 3px 24px #07324135; }
-    .pill { position: absolute; left: 22%; bottom: 15%; width: 260px; height: 92px; display: flex; justify-content: center; align-items: center; gap: 40px; font-size: 22px; font-weight: 450; --lg-tint: #ffffff0a; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 40px; background: #edf3f4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .scene { position: relative; width: min(1200px, 100%); height: min(740px, calc(100vh - 80px)); min-height: 560px; overflow: hidden; border-radius: 32px; background: url('../demo/assets/ocean.jpg') center 50% / cover; color: #153c47; box-shadow: 0 30px 100px #0005; }
+    .scene:before { content: ''; position: absolute; inset: 0; background: transparent; }
+    h1 { position: absolute; top: 42px; left: 50px; margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -.8px; text-shadow: 0 2px 15px #ffffff44; }
+    .card { position: absolute; top: 50%; left: 53%; transform: translate(-50%, -50%); width: 600px; height: 400px; display: grid; place-items: center; --lg-tint: #ffffff08; }
+    .card span { font-size: 112px; font-weight: 300; letter-spacing: -6px; padding-right: 6px; text-shadow: 0 3px 24px #07324135; }
+    .pill { position: absolute; left: 35%; bottom: 6%; width: 260px; height: 92px; display: flex; justify-content: center; align-items: center; gap: 40px; font-size: 22px; font-weight: 450; --lg-tint: #ffffff0a; }
     .pill svg { width: 24px; height: 24px; }
-    .circle { position: absolute; right: 20%; bottom: 11%; width: 158px; height: 158px; display: grid; place-items: center; --lg-tint: #ffffff08; }
+    .circle { position: absolute; right: 7%; bottom: 8%; width: 158px; height: 158px; display: grid; place-items: center; --lg-tint: #ffffff08; }
     .circle svg { width: 55px; height: 55px; stroke-width: 1.4; }
     @media (max-width: 700px) { body { padding: 16px; } .scene { height: calc(100vh - 32px); border-radius: 24px; } h1 { top: 30px; left: 30px; } .card { width: min(340px, calc(100% - 40px)); height: 260px; } .card span { font-size: 80px; } .pill { left: 8%; width: 200px; height: 78px; bottom: 14%; } .circle { right: 6%; width: 106px; height: 106px; bottom: 7%; } .circle svg { width: 40px; height: 40px; } }
   </style>
 </head>
 <body>
-  <main class="scene" aria-label="Three reusable Liquid Glass shapes over a mountain lake">
+  <main class="scene" aria-label="Three reusable Liquid Glass shapes over a detailed ocean photograph">
     <h1>Liquid Glass</h1>
     <div class="card" id="card"><span>Hello.</span></div>
     <div class="pill" id="pill"><span>Explore</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -29,9 +29,9 @@
   </main>
   <script type="module">
     import { createLiquidGlass } from '../src/liquid-glass.js';
-    createLiquidGlass('#card', { radius: 60 });
-    createLiquidGlass('#pill', { shape: 'pill' });
-    createLiquidGlass('#circle', { shape: 'ellipse' });
+    createLiquidGlass('#card', { radius: 100, light: 65 });
+    createLiquidGlass('#pill', { shape: 'pill', light: 65 });
+    createLiquidGlass('#circle', { shape: 'ellipse', light: 65 });
   </script>
 </body>
 </html>
